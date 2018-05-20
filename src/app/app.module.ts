@@ -32,6 +32,7 @@ import { ArticleComponent } from './article/article.component';
 import {MatTableModule} from '@angular/material/table';
 import { TableTestComponent } from './table-test/table-test.component';
 import {MatDialogModule} from "@angular/material";
+import { Mongo2Service } from './mongo2.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import {MatDialogModule} from "@angular/material";
   ],
   
   providers: [
-  ProductService
+  ProductService,
+  Mongo2Service
   ],
   bootstrap: [AppComponent]
 })

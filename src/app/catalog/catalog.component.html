@@ -1,7 +1,7 @@
     <div class="banner"></div>
     <img class="image1" src="assets\banner_shoping2.png">
     <font color="#2E324C">
-        <h1 >Una tienda online con 
+        <h1 >Una tienda online con
     descripción de productos</h1>
     </font>
 
@@ -14,7 +14,7 @@
      </div>
     <mat-card class="example-card">
         <mat-card-header>
-         
+
             <mat-card-title>Camisa cuadr</mat-card-title>
             <mat-card-subtitle>Mujer</mat-card-subtitle>
         </mat-card-header>
@@ -41,7 +41,7 @@
         <img mat-card-image src="assets/sweater.png">
         <mat-card-content>
             <p>
-                Sudadera M con bufanda 
+                Sudadera M con bufanda
                 integrada.
             </p>
         </mat-card-content>
@@ -126,8 +126,8 @@
 <div>
     <mat-card class="example-card5">
         <li *ngFor="let product of products">
-        <a routerLink="/details/{{product.id}}">
-                Id:<strong>{{product.id}}</strong> | Nombre:{{product.name}}</a>
+        <a routerLink="/details/{{product._id}}">
+                Id:<strong>{{product._id}}</strong> | Nombre:{{product.name}}</a>
       </li>
     </mat-card></div>
 

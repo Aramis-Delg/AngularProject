@@ -17,11 +17,11 @@ var path=require('path');
 var db;
 
 const connection=(closure) => {
-    return MongoClient.connect('mongob://localhost:27017', (err, client)=>{
+    return MongoClient.connect('mongodb://localhost:27017', (err, client)=>{
         if (err) return console.log(err);
         db=client.db('angulardb');
         closure(db);
-        
+
     });
 };
 
@@ -39,21 +39,41 @@ let response={
 };
 
 router.post('/getProducts',(req, res) => {
-    connection((db) => {
-        db.collection('products')
-        .find()
-        .toArray()
-        .catch((err)=>{
-            sendError(err, res);
-            response.message ={ success:"Se obtuvieron los registros correctamente", error:""};
-            res.send({response});
-        })
-        .then((result)=>{
-         
-            response.data= result;
-                res.send({response});
-        });
-    });
+
+  connection((db) => {
+    db.collection('products')
+      .find()
+      .toArray()
+      .catch((err)=>{
+        sendError(err, res);
+        response.message ={ success:"Se obtuvieron los registros correctamente", error:""};
+        res.send({response});
+      })
+      .then((result)=>{
+
+        response.data= result;
+        res.send({response});
+      });
+  });
 });
 
+
+router.post('/getProduct',(req, res) => {
+
+  connection((db) => {
+    db.collection('products')
+      .find({_id:new ObjectID(req.query.id)})
+      .toArray()
+      .catch((err)=>{
+        sendError(err, res);
+        response.message ={ success:"Se obtuvieron los registros correctamente", error:""};
+        res.send({response});
+      })
+      .then((result)=>{
+
+        response.data= result;
+        res.send({response});
+      });
+  });
+});
 module.exports=router;

@@ -10,16 +10,15 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class MongodbService {
 
 
-  constructor(private _http:HttpClient) { }
-  
-  result:any;
-  getProducts(){
-  let headers= new HttpHeaders({'Content-Type':'application/json'});
-  try{
-  return this._http.post('/api/getProducts',
-  {headers:headers});}
-  catch{((error:any)=> Observable.throw(error.json().error || 'server error'));}
-  
+  constructor(private _http: HttpClient) { }
+
+  result: any;
+  getProducts() {
+  const headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+  return this._http.post('/api/getProducts', null, {headers: headers}).
+    catch((error: any) => Observable.throw(error || 'server error'));
+
   }
 
 }
