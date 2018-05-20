@@ -1,6 +1,11 @@
 # AngularProject
+Los métodos  (get product) para obtener unsólo producto por id y abrirlos en details no lanzan ningún error en console, ni build ni server, pero no muestran el producto aún 
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+
 
 ## Development server
 
